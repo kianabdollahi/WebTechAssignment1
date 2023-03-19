@@ -11,9 +11,9 @@
       href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
       rel="stylesheet"
     />
-
     <title>My Notes</title>
   </head>
+
   <body>
     <header class="home-page-header">
       <h1 id="main-title">Take Better Notes</h1>
@@ -29,6 +29,50 @@
       </nav>
     </header>
 
-    <main></main>
+    <main>
+      <section class="note-taking-area">
+        <button id="new-note-button" type="button">New Note</button>
+        <button id="theme-button" type="button">Dark Theme</button>
+
+        <textarea
+          id="text-box"
+          name="user-notes"
+          rows="10"
+          cols="50"
+          placeholder="Enter your notes here"
+        ></textarea>
+
+        <button id="save-button" type="button">Save</button>
+        <button id="cancel-button" type="button">Cancel</button>
+      </section>
+
+      <aside class="home-page-aside">
+        <h2 id="my-notes-title">My Notes</h2>
+        <ul id="my-notes-list">
+          <li>Note One</li>
+          <li>Note Two</li>
+        </ul>
+      </aside>
+
+      <footer class="home-page-footer">
+        <h3 id="footer-title">Keep In Touch</h3>
+        <a href="https://www.linkedin.com/" title="linkedin"
+          ><img
+            src="images/linkedin_logo.webp"
+            alt="linkedin logo"
+            width="50"
+            height="50"
+        /></a>
+        <a
+          href="https://www.lensculture.com/articles/sonja-hamad-jin-jiyan-azadi-women-life-freedom"
+          title="jin jiyan azadi"
+          ><img
+            src="images/Internet_logo.webp"
+            alt="internet logo"
+            width="50"
+            height="50"
+        /></a>
+      </footer>
+    </main>
   </body>
 </html>
