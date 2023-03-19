@@ -1,0 +1,15 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f3e9de;
+}
+
+@media screen and (min-width: 600px) {
+  html {
+    background-color: red;
+  }
+}
+
+/* font-family: 'Righteous', cursive; */
