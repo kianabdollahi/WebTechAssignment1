@@ -6,6 +6,9 @@ html {
 body {
   background-color: #f3e9de;
   font-family: "Righteous", cursive;
+  display: grid;
+  height: 100%;
+  width: 100%;
 }
 
 h1,
@@ -40,11 +43,12 @@ h3,
 }
 aside {
   background-color: #faf4ec;
-  height: 20vh;
+  height: 100%;
 }
 
 #new-note-button,
 #save-button {
+  margin: 5%;
   background-color: #375f68;
   color: white;
   border: none;
@@ -53,6 +57,7 @@ aside {
 }
 
 #cancel-button {
+  margin: 5%;
   background-color: #9b332c;
   color: white;
   border: none;
@@ -70,6 +75,7 @@ aside {
 }
 
 #theme-button {
+  margin: 5%;
   background-color: #56536a;
   color: white;
   border: none;
@@ -81,6 +87,7 @@ aside {
 
 .note-taking-area {
   display: grid;
+  width: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 3fr 1fr;
 }
@@ -91,6 +98,8 @@ aside {
 }
 
 #text-box {
+  border: 2px solid #82c0e7;
+
   grid-column-start: 1;
   grid-column-end: 5;
 
@@ -104,4 +113,35 @@ footer {
 }
 
 @media screen and (min-width: 600px) {
+  body {
+    grid-template-columns: 20% auto;
+    grid-template-rows: 1fr 3fr 1fr;
+  }
+
+  main {
+    width: 100%;
+    grid-column-start: 3;
+    grid-column-end: span 7;
+  }
+
+  .home-page-header {
+    margin-left: 10%;
+    grid-column-start: 3;
+    grid-column-end: span 4;
+    grid-row: 1;
+  }
+
+  .home-page-aside {
+    height: 100%;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 1;
+    grid-row-end: span 4;
+  }
+
+  .home-page-footer {
+    grid-column-start: 3;
+    grid-row-start: 3;
+    grid-row-end: span 4;
+  }
 }
