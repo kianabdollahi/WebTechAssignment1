@@ -1,16 +1,14 @@
-// When the “Dark Theme” button is clicked,
-// Background colors should change to darker colors (use 2 different colors for the left and right parts)
-// Text colors on darker backgrounds should be updated to have good contrast
-// Use toggling class properties to achieve the two previous changes
-// Don't add css code in JS (don't use .style property)
-// Text on the button should be updated to “Light Theme”.
-// Pressing the “Light Theme” button would reverse all the changes. (3 points)
-
 const themeButton = document.querySelector("#theme-button");
 const buttonContainer = document.querySelector(".note-taking-area");
+const saveButton = document.querySelector("#save-button");
+const cancelButton = document.querySelector("#cancel-button");
+const newNoteButton = document.querySelector("#new-note-button");
+const textArea = document.querySelector("#text-box");
+
 const pageAside = document.querySelector("aside");
 const pageAsideHead = document.querySelector("aside h2");
 const pageAsideItems = document.querySelectorAll("#my-notes-list *");
+
 const pageHeader = document.querySelector("#main-title");
 const navAbout = document.querySelector("#nav-item-about");
 const navDocs = document.querySelector("#nav-item-docs");
@@ -37,4 +35,25 @@ function changeTheme(event) {
   }
 }
 
+function hideButtons(event) {
+  if (event.target.id === "cancel-button") {
+    saveButton.style.display = "none";
+    cancelButton.style.display = "none";
+    textArea.style.display = "none";
+  } else if (event.target.id === "new-note-button") {
+    saveButton.style.display = "block";
+    cancelButton.style.display = "block";
+    textArea.style.display = "block";
+  }
+}
+
+function clearText(event) {
+  if (event.target.id === "new-note-button") {
+    if (textArea.value.length != 0 && textArea.style.display === "block") {
+      textArea.value = "";
+    }
+  }
+}
 buttonContainer.addEventListener("click", changeTheme);
+buttonContainer.addEventListener("click", hideButtons);
+buttonContainer.addEventListener("click", clearText);
