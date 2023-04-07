@@ -14,14 +14,19 @@ const textArea = document.querySelector("#text-box");
 
 const pageAside = document.querySelector("aside");
 const pageAsideHead = document.querySelector("aside h2");
-const pageAsideItems = document.querySelectorAll("#my-notes-list *");
+let pageAsideItems = document.querySelectorAll("#my-notes-list li");
 
 const pageHeader = document.querySelector("#main-title");
 const navAbout = document.querySelector("#nav-item-about");
 const navDocs = document.querySelector("#nav-item-docs");
 const footerHead = document.querySelector("#footer-title");
 
+const notesList = document.querySelector("#my-notes-list");
+const newLi = document.createElement("li");
+
 function changeTheme(event) {
+  let pageAsideItems = document.querySelectorAll("#my-notes-list li");
+
   if (event.target.id === "theme-button") {
     document.body.classList.toggle("darkBody");
     pageAside.classList.toggle("darkAside");
@@ -35,6 +40,8 @@ function changeTheme(event) {
     } else {
       themeButton.textContent = "Dark Theme";
     }
+
+    let pageAsideItems = document.querySelectorAll("#my-notes-list li");
 
     for (let i = 0; i < pageAsideItems.length; i++)
       pageAsideItems[i].classList.toggle("darkText");
@@ -62,7 +69,10 @@ function clearText(event) {
   }
 }
 
-let notesArray = [{ title: "note one", body: "This is my first note" }];
+let notesArray = [
+  { title: "Note One", body: "This is note one" },
+  { title: "Note Two", body: "This is note two" },
+];
 
 function saveNote(event) {
   let noteBody;
@@ -76,13 +86,28 @@ function saveNote(event) {
 
       newNote = { title: `${noteTitle}`, body: `${noteBody}` };
       notesArray.push(newNote);
+
+      const notesList = document.querySelector("#my-notes-list");
+      const newLi = document.createElement("li");
+
+      newLi.textContent = `${noteTitle}`;
+      notesList.appendChild(newLi);
     }
 
     console.log(notesArray);
   }
 }
 
-buttonContainer.addEventListener("click", changeTheme);
+function displayNote(event) {
+  for (let i = 0; i < notesArray.length; i++) {
+    if (notesArray[i]["title"] === event.target.innerText) {
+      textArea.value = `${notesArray[i]["body"]}`;
+    }
+  }
+}
+
 buttonContainer.addEventListener("click", hideButtons);
 buttonContainer.addEventListener("click", clearText);
 buttonContainer.addEventListener("click", saveNote);
+buttonContainer.addEventListener("click", changeTheme);
+notesList.addEventListener("click", displayNote);
