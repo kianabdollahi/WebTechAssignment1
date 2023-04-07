@@ -132,6 +132,19 @@ h3,
   margin: 5%;
 }
 
+/* DARK THEME */
+.darkBody {
+  background-color: #37306b;
+}
+
+.darkAside {
+  background-color: #66347f;
+}
+
+.darkText {
+  color: #d27685;
+}
+
 @media screen and (min-width: 600px) {
   body {
     grid-template-columns: 20% auto;
